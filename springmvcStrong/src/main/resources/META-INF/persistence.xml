@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+	<!--配置mysql数据源 -->
+	<persistence-unit name="mysql" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<non-jta-data-source>mysqlDataSource</non-jta-data-source>
+			<!--这里的class是指要储存于本数据库的Entity -->
+		<class>org.strongme.walter.pojo.Customer</class>
+		<class>org.strongme.walter.pojo.Staff</class>
+		<class>org.strongme.walter.pojo.Store</class>
+		<class>org.strongme.walter.pojo.Film</class>
+		<class>org.strongme.walter.pojo.FilmCategory</class>
+		<class>org.strongme.walter.pojo.Country</class>
+		<class>org.strongme.walter.pojo.Inventory</class>
+		<class>org.strongme.walter.pojo.City</class>
+		<class>org.strongme.walter.pojo.Payment</class>
+		<class>org.strongme.walter.pojo.Category</class>
+		<class>org.strongme.walter.pojo.Actor</class>
+		<class>org.strongme.walter.pojo.Address</class>
+		<class>org.strongme.walter.pojo.Rental</class>
+		<class>org.strongme.walter.pojo.FilmActor</class>
+		<class>org.strongme.walter.pojo.Language</class>
+		<class>org.strongme.walter.pojo.FilmText</class>
+		<class>org.strongme.walter.pojo.FilmActorId</class>
+		<class>org.strongme.walter.pojo.FilmCategoryId</class>
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
+			<property name="hibernate.archive.autodetection" value="false" />
+			<property name="hibernate.transaction.auto_close_session"
+				value="false" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+		</properties>
+	</persistence-unit>
+	
+	<!--配置oracle数据源 -->
+	<persistence-unit name="oracle" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+
+		<non-jta-data-source>oracleDataSource</non-jta-data-source>
+
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect" />
+			<property name="hibernate.archive.autodetection" value="false" />
+			<property name="hibernate.transaction.auto_close_session"
+				value="false" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+		</properties>
+	</persistence-unit>
+</persistence>
